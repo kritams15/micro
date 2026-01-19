@@ -14,11 +14,11 @@
        private Service service;
 
         @PostMapping
-        private ResponseEntity<Entity> saveCustomer(@RequestBody Entity entity){
+        private ResponseEntity<Customer> saveCustomer(@RequestBody Customer entity){
             return ResponseEntity.ok(service.saveCustomer(entity));
         }
         @GetMapping
-        private ResponseEntity<List<Entity>> getAllCustomers(){
+        private ResponseEntity<List<Customer>> getAllCustomers(){
             return ResponseEntity.ok(service.findAll());
         }
     }

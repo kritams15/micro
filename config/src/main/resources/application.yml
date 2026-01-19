@@ -1,0 +1,13 @@
+server:
+  port: 8881  # Default port for config server
+
+spring:
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config  # Points to src/main/resources/config/
+  application:
+    name: config-server
+  profiles:
+    active: native  # Enables native backend

@@ -12,11 +12,11 @@ public class Service {
     private Repository respository;
 
 
-    public List<Entity> findAll() {
+    public List<Customer> findAll() {
         return respository.findAll();
     }
 
-    public Entity saveCustomer(Entity entity) {
+    public Customer saveCustomer(Customer entity) {
         return  respository.save(entity);
 
     }

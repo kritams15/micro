@@ -12,7 +12,7 @@ import java.util.Date;
 @jakarta.persistence.Entity
 @Table(name="custumer")
 
-public class Entity {
+public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

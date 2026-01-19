@@ -32,5 +32,12 @@ public class Room {
     @Enumerated(EnumType.STRING)
     private RoomStatus status;
 
-
+    public Room(Long id, Long hotelId, String roomNumber, RoomType roomType, BigDecimal price, RoomStatus status) {
+        this.id = id;
+        this.hotelId = hotelId;
+        this.roomNumber = roomNumber;
+        this.roomType = roomType;
+        this.price = price;
+        this.status = status;
+    }
 }
