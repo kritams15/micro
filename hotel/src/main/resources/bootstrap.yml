@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8881  # Config server URL
+      name: hotel  # Matches config/hotel.yml
+      profile: default  # Or 'dev' for config/hotel-dev.yml
