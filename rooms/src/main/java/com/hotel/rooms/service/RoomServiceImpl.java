@@ -1,29 +1,38 @@
 package com.hotel.rooms.service;
 
+import com.hotel.rooms.config.ServiceCall;
 import com.hotel.rooms.dto.RoomRequestDTO;
 import com.hotel.rooms.dto.RoomResponseDTO;
+import com.hotel.rooms.entity.Hotel;
 import com.hotel.rooms.entity.Room;
 import com.hotel.rooms.entity.RoomStatus;
+import com.hotel.rooms.entity.RoomType;
 import com.hotel.rooms.entity.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class RoomServiceImpl implements RoomService {
 
     private final RoomRepository roomRepository;
+    private final ServiceCall serviceCall;
 
     @Override
     public RoomResponseDTO createRoom(RoomRequestDTO request) {
 
+        Hotel hotelid=  serviceCall.callServiceB(request.getHotelId());
+        log.info("-------------------mes",hotelid);
         Room room = Room.builder()
                 .hotelId(request.getHotelId())
                 .roomNumber(request.getRoomNumber())
-                .roomType(request.getRoomType())
+                .roomType(RoomType.DOUBLE)
                 .price(request.getPrice())
                 .status(RoomStatus.AVAILABLE)
                 .build();
