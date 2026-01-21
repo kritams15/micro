@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: producer
+  kafka:
+    producer:
+      boootstrap-server: localhost:9092
+
+server:
+  port: 1111
